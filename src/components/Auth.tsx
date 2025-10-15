@@ -68,7 +68,7 @@ export default function Auth({ onLogin }: Props) {
         const err = await res.json().catch(() => ({}));
         setError(err.detail || "Signup failed");
       }
-    } catch (_) {
+    } catch {
       setError("Network error. Please try again.");
     } finally {
       setIsLoading(false);
