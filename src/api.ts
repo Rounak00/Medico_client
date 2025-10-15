@@ -2,8 +2,11 @@ interface ImportMetaEnv {
     VITE_API_URL: string;
 }
 
-interface ImportMeta {
-    env: ImportMetaEnv;
+// Augment the global ImportMeta interface so TypeScript recognizes import.meta.env
+declare global {
+    interface ImportMeta {
+        readonly env: ImportMetaEnv;
+    }
 }
 
 const API_URL = import.meta.env.VITE_API_URL as string;
